@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/index_style.css" />
+        <title>Ремонт</title>
+    </head>
+
+<body>
+    <div class="main">
+       <form method="post" action="index.php?action=<?=$_GET['action']?>&id=<?=$_GET['id']?>">
+                <label>
+                    Post Titel<br>
+                    <input type="text" name="title" value="<?=$articles['title']?>" class="form-item" autofocus required>
+                </label><br>
+                <label>
+                    Post Date<br>
+                    <input type="date" name="date" value="<?=$articles['date']?>" class="form-item" required>
+                </label><br>
+                <label>
+                    Post Content<br>
+                    <textarea class="form-item" name="content" required><?=$articles['content']?></textarea>
+                </label><br>
+                <input type="submit" value="Save" class="btn">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
