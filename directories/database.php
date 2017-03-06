@@ -1,7 +1,7 @@
 <?php
 
-define('MYSQL_SERVER', 'localhost');
-define('MYSQL_USER', 'repairs');
+define('MYSQL_SERVER', '192.168.12.86');
+define('MYSQL_USER', 'repairs_old');
 define('MYSQL_PASSWORD', 'md56sd11');
 define('MYSQL_DB', 'repairs_old');
 
