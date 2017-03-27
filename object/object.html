@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/css" href="../css/background.css" />
+<link rel="stylesheet" type="text/css" href="../css/object.css" />
+<!-- <link rel="stylesheet" type="text/css" href="css/reu.css" /> -->
+<title>Программа ремонта</title>
+</head>
+<body>
+<div class="wrap">
+	<div class="info">
+	<table class="main">
+		<tr>
+			<td width="55%"><h3>Весь жилищный фонд<h3></td>
+			<td width="15%"><button>Варианты титула</button></td>
+			<td width="25%">Проведенные работы по месяцам</td>
+			<td width="42px"><button class="month"></button></td>
+			<td width="5%">Выход</td>
+			<td width="42px"><button class="exit"></button></td>
+		</tr>
+	</table>	
+	</div>
+	<div class="info_brd">
+	<table class="main">
+		<tr>
+			<td width="300px"><input style="width:20px;" type="checkbox" name="winter" value="" 
+                                     <?php if($data['winter']) echo " checked";?> 
+                >Вкл. в меропр. подготовки к зиме</td>
+			<td><input style="width:20px;" type="checkbox" name="" value=""
+                       <?php if($data['municipal']) echo " checked";?>
+                >Включать в муницип. заказ</td>
+		</tr>
+	</table>
+	<table class="main">	
+		<tr>
+			<td width="24%" align="center" rowspan="2">Вид ремонта</td>
+			<td width="1%" rowspan="2"><button class="small_button"></button></td>
+			<td width="24%" align="center" rowspan="2">Конструктив</td>
+			<td width="1%" rowspan="2"><button class="small_button"></button></td>
+			<td width="24%" align="center" rowspan="2">Исполнитель г/п</td>
+			<td width="1%" rowspan="2"><button class="small_button"></button></td>
+			<td width="24%" align="center" colspan="2">Год ремонта:</td>
+		</tr>
+		<tr><td align="center">последнего</td><td align="center">планового</td></tr>
+		<tr>
+			<td colspan="2" align="center"><p><select><option>Ремонтные работы по текущему</option></select></p></td>
+			<td colspan="2" align="center"><p><select><option>Инженерное оборудование</option></select></td>
+			<td colspan="2" align="center"><p><select><option></option></select></td>
+			<td align="center"><input type="text" size="4" value=
+                      <?php echo " \"" . $data['last_year'] . "\""; ?>
+                ></td>
+			<td align="center"><input type="text" size="4" value=
+                      <?php echo " \"" . $data['year'] . "\""; ?>
+                ></td>
+		</tr>
+	</table>
+	<table class="main">
+		<tr>
+			<td align="center" width="8%">Договор:</td>
+			<td align="center" width="5%"><input type="text" size="4" value=
+                    <?php echo " \"" . $data['contract'] . "\""; ?> 
+                ></td>
+			<td align="center" width="5%">Дата:</td>
+			<td align="center" width="5%"><input type="text" size="4" value=
+                    <?php echo " \"" . $data['contract_date'] . "\""; ?>
+                ></td>
+			<td align="center" width="5%">%</td>
+			<td align="center" width="5%"><input type="text" size="4"></td>
+			<td align="center" width="12%">№ по важности:</td>
+			<td align="center" width="5%"><input type="text" size="4" value=
+                    <?php echo " \"" . $data['number_pp'] . "\""; ?>
+                ></td>
+			<td align="center" width="5%">Куратор:</td>
+			<td align="center" width="23%"><p><select><option></option></select></p></td>
+			<td align="center" width="15%">Наличие ПСД<input style="width:20px;" type="checkbox" name="" value=""
+                    <?php if($data['psd']) echo " checked";?>
+                ></td>
+		</tr>
+	</table>	
+	</div>
+	<div class="info_brd">
+		<h3>Краткая характеристика</h3>
+		<table class="main">
+			<tr>
+				<td width="14%">Вид конструктива</td>
+				<td width="80%"><p><select><option></option></select></p></td>
+			</tr>
+			<tr>			
+				<td>Вид работ</td>
+				<td><p><select><option></option></select></p></td>
+			</tr>
+		</table>	
+		<table class="main">		
+			<tr>
+				<td width="7%">Материал</td>
+				<td width="10%"><p><select><option></option></select></p></td>
+				<td width="2%" class="s_button"><button class="small_button"></button></td>
+				<td width="15%" align="right">Заказчик</td>
+				<td width="10%"><p><select><option></option></select></p></td>
+				<td width="2%" class="s_button"><button class="small_button"></button></td>
+				<td width="15%" align="right">Подрядчик</td>
+				<td width="10%"><p><select><option></option></select></p></td>
+				<td width="2%" class="s_button"><button class="small_button"></button></td>
+				<td width="27%"></td>
+			</tr>
+		</table>	
+	</div>
+	<div class="wrap_bt">
+	<div class="info_brd_L">
+		<h3>Объемные показатели</h3>
+		<table class="main">
+			<tr>
+				<td rowspan="2" width="30%">Объем работ</td>
+				<td rowspan="2" colspan="2" width="15%"><input type="text" size="4" value=
+                        <?php echo " \"" . $data['volume_per_year'] . "\""; ?>                                     
+                    ></td>
+				<td width="35%"> Всего СМР титул (1984г), руб</td>
+				<td><input type="text" size="4" value=
+                           <?php echo " \"" . $data['sum_smr_1984'] . "\""; ?>
+                </td>
+			</tr>
+			<tr>
+				<td> Всего СМР титул (<input class="small_inp" type="text" size="4" value=
+                                             <?php echo " \"" . $data['smr_year'] . "\""; ?>
+                    >), руб</td>
+				<td><input type="text" size="4" value=
+                           <?php echo " \"" . $data['sum_smr_current_year'] . "\""; ?>
+                </td>
+			</tr>
+			<tr>			
+				<td rowspan="2">Единица измерения</td>
+				<td rowspan="2"><p><select><option></option></select></p></td>
+				<td rowspan="2" width="2%" class="s_button"><button class="small_button"></button></td>
+				<td>Новая стоимость в тек. ценах:</td>
+				<td><input type="text" size="4" value=
+                           <?php echo " \"" . $data['current_smr'] . "\""; ?>
+                </td>
+			</tr>
+			<tr>
+				<td>Сумма от процента экономии:</td>
+				<td><input type="text" size="4"></td>
+			</tr>
+			<tr>
+				<td>Стоимость оборудования</td>
+				<td colspan="2"><input type="text" size="4" value=
+                            <?php echo " \"" . $data['cost_of_equipment'] . "\""; ?>
+                </td>
+			</tr>
+		</table>
+		<table class="main">
+			<tr>
+				<td colspan="8" align="center">В т.ч. по кварталам:</td>
+			</tr>
+			<tr>
+				<td width="5%" align="center">I</td>
+				<td width="20%"><input type="text" size="4" value=
+                                       <?php echo " \"" . $data['kv_1'] . "\""; ?>
+                </td>
+				<td width="5%" align="center">II</td>
+				<td width="20%"><input type="text" size="4" value=
+                                       <?php echo " \"" . $data['kv_2'] . "\""; ?>
+                </td>
+				<td width="5%" align="center">III</td>
+				<td width="20%"><input type="text" size="4" value=
+                                       <?php echo " \"" . $data['kv_3'] . "\""; ?>
+                </td>
+				<td width="5%" align="center">IV</td>
+				<td width="20%"><input type="text" size="4" value=
+                                       <?php echo " \"" . $data['kv_4'] . "\""; ?>
+                </td>
+			</tr>
+		</table>
+		<table class="main">
+			<tr>
+				<td width="25%">Остаток стоимости:</td>
+				<td><input type="text" size="4" value=
+                           <?php echo " \"" . $data['cost_balance'] . "\""; ?>
+                </td>
+				<td><input type="text" size="4" value=
+                           <?php echo " \"" . $data['kv_sum'] . "\""; ?>
+                </td>
+			</tr>
+		</table>		
+	</div>
+	<div class="info_brd_R">
+		<table class="main">
+			<tr>
+				<td colspan="2" width="50%"><h3>Даты работ</h3></td>
+				<td width="50%"><h3>Примечания</h3></td>
+			</tr>
+			<tr>
+				<td >начала</td>
+				<td ><input type="text" size="4" value=
+                            <?php echo " \"" . $data['first_date'] . "\""; ?>
+                </td>
+				<td rowspan="2"><input style="height:40px;" type="text" size="4" value=
+                            <?php echo " \"" . $data['note'] . "\""; ?>
+                </td>
+			</tr>
+			<tr>			
+				<td>окончания</td>
+				<td><input type="text" size="4" value=
+                           <?php echo " \"" . $data['last_date'] . "\""; ?>
+                </td>
+			</tr>
+		</table>	
+	</div>
+	<div class="info_brd_R">
+		<table class="main">
+			<h3>Обоснование</h3>
+			<tr>
+				<td rowspan="2"><input style="height:63px;" type="text" size="4" value=
+                           <?php echo " \"" . $data['justification'] . "\""; ?>
+                </td>
+			</tr>
+		</table>	
+	</div>
+</div>
+</body>
