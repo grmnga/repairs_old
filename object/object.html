@@ -421,7 +421,7 @@
 			<tr>
 				<td >начала</td>
 				<td ><input type="text" size="4" value=
-                            <?php echo " \"" . date_create($data['first_date'])->Format('d-m-Y') . "\""; ?>
+                            <?php echo " \"" . date_create($data['first_date'])->Format('d.m.Y') . "\""; ?>
                 </td>
 				<td rowspan="2"><input style="height:40px;" type="text" size="4" value=
                             <?php echo " \"" . $data['note'] . "\""; ?>
@@ -430,7 +430,7 @@
 			<tr>			
 				<td>окончания</td>
 				<td><input type="text" size="4" value=
-                           <?php echo " \"" . date_create($data['last_date'])->Format('d-m-Y') . "\""; ?>
+                           <?php echo " \"" . date_create($data['last_date'])->Format('d.m.Y') . "\""; ?>
                 </td>
 			</tr>
 		</table>	
