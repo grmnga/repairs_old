@@ -6,7 +6,6 @@
         echo "Error connect to data base";
 /*    else
         echo "Connect to data base is OK";*/
-echo $_POST['street'], "</br>";
 /*$sql = "SELECT o.id as id, o.year as year, ot.name as otname, wt.name as wtname " .
     "FROM objects as o, object_type as ot, work_type as wt " .
     "where o.object_type_id = ot.id and ot.id = " . $_POST['object_type'] . 
@@ -34,20 +33,35 @@ $result = mysqli_query($link, $sql);
         $row = mysqli_fetch_assoc($result);
         $articles[] = $row;
     }
-    echo "<table border=1> 
-            <tr>
-                <th>№</th>
-                <th>Улица</th>
-                <th>Дом</th>
-                <th>Корпус</th>
-                <th>Вид работ</th>
-                <th>Вид ремонта</th>
-                <th>Конструктив</th>
-                <th>Вид конструктива</th>
-                <th>Год планового ремонта</th>
-                <th>Просмотр</th>
-            </tr>";
     $i = 1;
+?>
+   
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <!--<link rel="stylesheet" type="text/css" href="../css/index_style.css" />-->
+        <link rel="stylesheet" type="text/css" href="../css/background.css" />
+        <title>По адресам</title>
+    </head>
+<body>
+   <div class="main">
+        <h3>Результаты поиска</h3>
+          <br>
+            <form method="post" action="../object/object.php">
+                <table border=1> 
+                    <tr>
+                        <th>№</th>
+                        <th>Улица</th>
+                        <th>Дом</th>
+                        <th>Корпус</th>
+                        <th>Вид работ</th>
+                        <th>Вид ремонта</th>
+                        <th>Конструктив</th>
+                        <th>Вид конструктива</th>
+                        <th>Год планового ремонта</th>
+                        <th>Просмотр</th>
+                    </tr>
+<?php     
     foreach($articles as $a): 
         echo "<tr><td>";
         echo $i++;
@@ -68,7 +82,13 @@ $result = mysqli_query($link, $sql);
         echo "</td><td>";
         echo $a['oyear'];
         echo "</td><td>";
-        echo "<button type=\"submit\" value=\"" . $a['id'] . "\">>></button>";
+        echo "<button type=\"submit\" name=\"id\" value=\"" . $a['id'] . "\">>></button>";
         echo "</td></tr>";
     endforeach;
-    echo "</div>";
+    
+?>
+                </table>
+       </form>
+    </div>
+</body>
+</html>
