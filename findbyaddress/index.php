@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <link rel="stylesheet" type="text/css" href="../css/index_style.css" />
+        <link rel="stylesheet" type="text/css" href="../css/background.css" />
         <title>Ремонт</title>
     </head>
 
