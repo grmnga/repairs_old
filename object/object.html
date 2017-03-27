@@ -43,7 +43,29 @@
 		</tr>
 		<tr><td align="center">последнего</td><td align="center">планового</td></tr>
 		<tr>
-			<td colspan="2" align="center"><p><select><option>Ремонтные работы по текущему</option></select></p></td>
+			<td colspan="2" align="center">
+                <p>
+                    <select>
+                        <?php
+                            foreach($repairs_type as $rp)
+                            {
+                                if($rp['id'] == $data['repairs_type_id'])
+                                {
+                                    echo "<option selected value=", $rp['id'], ">";
+                                    echo $rp['name'];
+                                    echo "</option>";
+                                }
+                                else
+                                {
+                                    echo "<option value=", $rp['id'], ">";
+                                    echo $rp['name'];
+                                    echo "</option>";
+                                }
+                            }
+                            ?>
+                    </select>
+                </p>
+            </td>
 			<td colspan="2" align="center"><p><select><option>Инженерное оборудование</option></select></td>
 			<td colspan="2" align="center"><p><select><option></option></select></td>
 			<td align="center"><input type="text" size="4" value=
