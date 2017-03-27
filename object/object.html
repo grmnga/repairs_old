@@ -46,6 +46,7 @@
 			<td colspan="2" align="center">
                 <p>
                     <select>
+                        <option></option>
                         <?php
                             foreach($repairs_type as $rp)
                             {
@@ -69,6 +70,7 @@
 			<td colspan="2" align="center">
                 <p>
                     <select>
+                        <option></option>
                         <?php
                             foreach($constructive as $c)
                             {
@@ -92,6 +94,7 @@
 			<td colspan="2" align="center">
                 <p>
                     <select>
+                        <option></option>
                         <?php
                             foreach($executor as $e)
                             {
@@ -137,7 +140,30 @@
                     <?php echo " \"" . $data['number_pp'] . "\""; ?>
                 ></td>
 			<td align="center" width="5%">Куратор:</td>
-			<td align="center" width="23%"><p><select><option></option></select></p></td>
+			<td align="center" width="23%">
+                <p>
+                    <select>
+                        <option></option>
+                        <?php
+                            foreach($curator as $c)
+                            {
+                                if($e['id'] == $data['curator_id'])
+                                {
+                                    echo "<option selected value=", $c['id'], ">";
+                                    echo $c['name'];
+                                    echo "</option>";
+                                }
+                                else
+                                {
+                                    echo "<option value=", $c['id'], ">";
+                                    echo $c['name'];
+                                    echo "</option>";
+                                }
+                            }
+                            ?>
+                    </select>
+                </p>
+            </td>
 			<td align="center" width="15%">Наличие ПСД<input style="width:20px;" type="checkbox" name="" value=""
                     <?php if($data['psd']) echo " checked";?>
                 ></td>
@@ -149,25 +175,140 @@
 		<table class="main">
 			<tr>
 				<td width="14%">Вид конструктива</td>
-				<td width="80%"><p><select><option></option></select></p></td>
+				<td width="80%">
+                    <p>
+                        <select>
+                            <option></option>
+                            <?php
+                                foreach($constructive_type as $ct)
+                                {
+                                    if($ct['id'] == $data['constructive_type_id'])
+                                    {
+                                        echo "<option selected value=", $ct['id'], ">";
+                                        echo $ct['name'];
+                                        echo "</option>";
+                                    }
+                                    else
+                                    {
+                                        echo "<option value=", $ct['id'], ">";
+                                        echo $ct['name'];
+                                        echo "</option>";
+                                    }
+                                }
+                                ?>
+                        </select>
+                    </p>
+                </td>
 			</tr>
 			<tr>			
 				<td>Вид работ</td>
-				<td><p><select><option></option></select></p></td>
+				<td>
+                    <p>
+                        <select>
+                            <option></option>
+                            <?php
+                                foreach($work_type as $wt)
+                                {
+                                    if($wt['id'] == $data['work_type_id'])
+                                    {
+                                        echo "<option selected value=", $wt['id'], ">";
+                                        echo $wt['name'];
+                                        echo "</option>";
+                                    }
+                                    else
+                                    {
+                                        echo "<option value=", $wt['id'], ">";
+                                        echo $wt['name'];
+                                        echo "</option>";
+                                    }
+                                }
+                                ?>
+                        </select>
+                    </p>
+                </td>
 			</tr>
 		</table>	
 		<table class="main">		
 			<tr>
 				<td width="7%">Материал</td>
-				<td width="10%"><p><select><option></option></select></p></td>
+				<td width="15%">
+                    <p>
+                        <select>
+                            <option></option>
+                            <?php
+                                foreach($material as $m)
+                                {
+                                    if($m['id'] == $data['material_id'])
+                                    {
+                                        echo "<option selected value=", $m['id'], ">";
+                                        echo $m['name'];
+                                        echo "</option>";
+                                    }
+                                    else
+                                    {
+                                        echo "<option value=", $m['id'], ">";
+                                        echo $m['name'];
+                                        echo "</option>";
+                                    }
+                                }
+                                ?>
+                        </select>
+                    </p>
+                </td>
 				<td width="2%" class="s_button"><button class="small_button"></button></td>
-				<td width="15%" align="right">Заказчик</td>
-				<td width="10%"><p><select><option></option></select></p></td>
+				<td width="10%" align="right">Заказчик</td>
+				<td width="15%">
+                    <p>
+                        <select>
+                            <option></option>
+                            <?php
+                                foreach($customer as $c)
+                                {
+                                    if($c['id'] == $data['customer_id'])
+                                    {
+                                        echo "<option selected value=", $c['id'], ">";
+                                        echo $c['name'];
+                                        echo "</option>";
+                                    }
+                                    else
+                                    {
+                                        echo "<option value=", $c['id'], ">";
+                                        echo $c['name'];
+                                        echo "</option>";
+                                    }
+                                }
+                                ?>
+                        </select>
+                    </p>
+                </td>
 				<td width="2%" class="s_button"><button class="small_button"></button></td>
 				<td width="15%" align="right">Подрядчик</td>
-				<td width="10%"><p><select><option></option></select></p></td>
+				<td width="10%">
+                    <p>
+                        <select>
+                            <option></option>
+                            <?php
+                                foreach($contractor as $c)
+                                {
+                                    if($c['id'] == $data['contractor_id'])
+                                    {
+                                        echo "<option selected value=", $c['id'], ">";
+                                        echo $c['name'];
+                                        echo "</option>";
+                                    }
+                                    else
+                                    {
+                                        echo "<option value=", $c['id'], ">";
+                                        echo $c['name'];
+                                        echo "</option>";
+                                    }
+                                }
+                                ?>
+                        </select>
+                    </p>
+                </td>
 				<td width="2%" class="s_button"><button class="small_button"></button></td>
-				<td width="27%"></td>
+				<td width="22%"></td>
 			</tr>
 		</table>	
 	</div>
@@ -195,7 +336,30 @@
 			</tr>
 			<tr>			
 				<td rowspan="2">Единица измерения</td>
-				<td rowspan="2"><p><select><option></option></select></p></td>
+				<td rowspan="2">
+                    <p>
+                        <select>
+                            <option></option>
+                            <?php
+                                foreach($unit as $u)
+                                {
+                                    if($u['id'] == $data['unit_id'])
+                                    {
+                                        echo "<option selected value=", $u['id'], ">";
+                                        echo $u['name'];
+                                        echo "</option>";
+                                    }
+                                    else
+                                    {
+                                        echo "<option value=", $u['id'], ">";
+                                        echo $u['name'];
+                                        echo "</option>";
+                                    }
+                                }
+                                ?>
+                        </select>
+                    </p>
+                </td>
 				<td rowspan="2" width="2%" class="s_button"><button class="small_button"></button></td>
 				<td>Новая стоимость в тек. ценах:</td>
 				<td><input type="text" size="4" value=
