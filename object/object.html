@@ -66,8 +66,52 @@
                     </select>
                 </p>
             </td>
-			<td colspan="2" align="center"><p><select><option>Инженерное оборудование</option></select></td>
-			<td colspan="2" align="center"><p><select><option></option></select></td>
+			<td colspan="2" align="center">
+                <p>
+                    <select>
+                        <?php
+                            foreach($constructive as $c)
+                            {
+                                if($c['id'] == $data['constructive_id'])
+                                {
+                                    echo "<option selected value=", $c['id'], ">";
+                                    echo $c['name'];
+                                    echo "</option>";
+                                }
+                                else
+                                {
+                                    echo "<option value=", $c['id'], ">";
+                                    echo $c['name'];
+                                    echo "</option>";
+                                }
+                            }
+                            ?>
+                    </select>
+                </p>
+            </td>
+			<td colspan="2" align="center">
+                <p>
+                    <select>
+                        <?php
+                            foreach($executor as $e)
+                            {
+                                if($e['id'] == $data['executor_id'])
+                                {
+                                    echo "<option selected value=", $e['id'], ">";
+                                    echo $e['name'];
+                                    echo "</option>";
+                                }
+                                else
+                                {
+                                    echo "<option value=", $e['id'], ">";
+                                    echo $e['name'];
+                                    echo "</option>";
+                                }
+                            }
+                            ?>
+                    </select>
+                </p>
+            </td>
 			<td align="center"><input type="text" size="4" value=
                       <?php echo " \"" . $data['last_year'] . "\""; ?>
                 ></td>

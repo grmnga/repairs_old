@@ -29,7 +29,33 @@ for ($i = 0; $i < $n; $i++)
     $repairs_type[] = $row;
 }
 
-//var_dump($repairs_type);
+//СПРАВОЧНИК КОНСТРУКТИВОВ
+$sql = "SELECT id, name FROM constructive ORDER BY name";
+$result = mysqli_query($link, $sql);
+if (!$result)
+    die(mysqli_error($link));
+$n = mysqli_num_rows($result);
+$constructive = array();
+for ($i = 0; $i < $n; $i++)
+{
+    $row = mysqli_fetch_assoc($result);
+    $constructive[] = $row;
+}
+
+//СПРАВОЧНИК ИСПОЛНИТЕЛЕЙ
+$sql = "select id, name from executor";
+$result = mysqli_query($link, $sql);
+if (!$result)
+    die(mysqli_error($link));
+$n = mysqli_num_rows($result);
+$executor = array();
+for ($i = 0; $i < $n; $i++)
+{
+    $row = mysqli_fetch_assoc($result);
+    $executor[] = $row;
+}
+
+//var_dump($constructive);
 
 include("object.html");
 ?>
