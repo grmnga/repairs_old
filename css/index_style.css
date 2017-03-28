@@ -13,3 +13,20 @@ html{
 #object{
     width:400px;
 }
+.main_button{
+    font-size: 28px;
+
+    margin: auto;
+    padding: 15px 40px;
+    border-radius: 5px;
+    color: white;
+    text-shadow: black 0px 1px 1px;
+    cursor: pointer;
+    width: 303px;
+}
+.div_main {
+    width: 272px;
+    \\height: 76px;
+        \\background-image: url(../img/web-15.png);
+    \\background-size: cover;
+}
