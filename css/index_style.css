@@ -8,25 +8,48 @@ html{
 	height: 100%;
 	width:900px;
 	margin:auto;
-	padding-top:100px;
+	margin-top:200px;
 }
 #object{
     width:400px;
 }
-.main_button{
-    font-size: 28px;
 
-    margin: auto;
-    padding: 15px 40px;
-    border-radius: 5px;
-    color: white;
-    text-shadow: black 0px 1px 1px;
-    cursor: pointer;
-    width: 303px;
+
+.findbyaddress{
+	width: 272px; 
+    height: 76px; 
+	margin-bottom:20px;
+    background: url(../img/find-button.png); 
+	background-size: cover;
 }
-.div_main {
-    width: 272px;
-    \\height: 76px;
-        \\background-image: url(../img/web-15.png);
-    \\background-size: cover;
+.findbyaddress a{
+	display: block; 
+    text-align: center; 
+    height: 100%;
+}
+
+.directories{
+	width: 272px; 
+    height: 76px; 
+	margin-bottom:20px;
+    background: url(../img/dictionaries.png); 
+	background-size: cover;
+}
+.directories a{
+	display: block; 
+    text-align: center; 
+    height: 100%;
+}
+
+.reports{
+	width: 272px; 
+    height: 76px; 
+	margin-bottom:20px;
+    background: url(../img/reports.png); 
+	background-size: cover;
+}
+.reports a{
+	display: block; 
+    text-align: center; 
+    height: 100%;
 }
