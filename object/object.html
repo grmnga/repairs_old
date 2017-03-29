@@ -134,7 +134,9 @@
                     <?php echo " \"" . $data['contract_date'] . "\""; ?>
                 ></td>
 			<td align="center" width="5%">%</td>
-			<td align="center" width="5%"><input type="text" size="4"></td>
+			<td align="center" width="5%"><input type="text" size="4" value=
+                    <?php echo " \"" . $data['percent'] . "\""; ?>
+                ></td>
 			<td align="center" width="12%">№ по важности:</td>
 			<td align="center" width="5%"><input type="text" size="4" value=
                     <?php echo " \"" . $data['number_pp'] . "\""; ?>
@@ -368,7 +370,9 @@
 			</tr>
 			<tr>
 				<td>Сумма от процента экономии:</td>
-				<td><input type="text" size="4"></td>
+				<td><input type="text" size="4" value=
+                    <?php echo " \"" . $data['economy'] . "\""; ?>
+                    ></td>
 			</tr>
 			<tr>
 				<td>Стоимость оборудования</td>

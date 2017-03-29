@@ -8,7 +8,9 @@ require_once("../database.php");
         echo "Error connect to data base";
 
 //ЗАПРОС ДАННЫХ ОБ ОБЪЕКТЕ
-$sql = "select *, (kv_1 + kv_2 + kv_3 + kv_4) as kv_sum  from objects where id = " . $_POST['id'];
+$sql = "select o.*, (o.kv_1 + o.kv_2 + o.kv_3 + o.kv_4) as kv_sum, e.percent as percent,
+(o.sum_smr_current_year * e.percent / 100) as economy
+from objects o left join executor e on o.executor_id = e.id where o.id = " . $_POST['id'];
 $result = mysqli_query($link, $sql);
 if (!$result)
     die(mysqli_error($link));
@@ -146,6 +148,8 @@ for ($i = 0; $i < $n; $i++)
     $row = mysqli_fetch_assoc($result);
     $unit[] = $row;
 }
+
+
 
 //var_dump($constructive);
 
