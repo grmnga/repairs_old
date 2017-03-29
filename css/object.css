@@ -11,6 +11,45 @@ body{height: 100%;width:100%;}
 	height:100%;
 	overflow:hidden;
 }
+.pbf_link{
+	width: 50px; 
+    height: 50px; 
+	margin-right:15px;
+    background: url(../img/edit.png); 
+	background-size: cover;
+	float: left;
+}
+.pbf_link a{
+	display: block; 
+    text-align: center; 
+    height: 100%;
+}
+.pbs_link{
+	width: 50px; 
+    height: 50px; 
+	margin-right:15px;
+    background: url(../img/save.png); 
+	background-size: cover;
+	float: left;
+}
+.pbs_link a{
+	display: block; 
+    text-align: center; 
+    height: 100%;
+}
+.pbt_link{
+	width: 50px; 
+    height: 50px; 
+	background: url(../img/refresh.png); 
+	background-size: cover;
+	float: left;
+}
+.pbt_link a{
+	display: block; 
+    text-align: center; 
+    height: 100%;
+}
+
 .info{
 	width:99%;
 	margin:10px 0px;
@@ -28,7 +67,7 @@ body{height: 100%;width:100%;}
 	overflow:hidden;
 }
 .info_brd_L{
-	display:inline-block;
+	display:table-cell;
 	width:59%;
 	padding:10px 0px 10px 0px;
 	border: 1px solid black;
@@ -37,7 +76,7 @@ body{height: 100%;width:100%;}
 	float: left;
 }
 .info_brd_R{
-	display:inline-block;
+	display:table-cell;
 	width:38%;
 	padding:10px 0px 10px 0px;
 	border: 1px solid black;
