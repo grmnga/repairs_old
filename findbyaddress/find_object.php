@@ -18,7 +18,7 @@ left join works w on o.work_id = w.id
 left join repairs_type rt on o.repairs_type_id = rt.id
 left join constructive c on o.constructive_id = c.id 
 left join constructive_type ct on o.constructive_type_id = ct.id
-where o.year = 2017 and s.id = " . $_POST['street'] . " and h.number = " . $_POST['number'];
+where s.id = " . $_POST['street'] . " and h.number = " . $_POST['number'] . " and o.year = " . $_POST['year'];
 
 $result = mysqli_query($link, $sql);
 
