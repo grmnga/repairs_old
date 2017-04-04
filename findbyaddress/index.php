@@ -45,6 +45,9 @@ echo "</select></br></br>";
     <p>Корпус:</p>
     <input type="text" name="litera" id="object">
     </br></br>
+    <p>Год ремонта:</p>
+    <input type="text" name="year" id="object">
+    </br></br>
     <!-- <button formaction="" name="button" type="submit" value="OK"> Окай</button> -->
         <input type="submit" value="Найти">
 
