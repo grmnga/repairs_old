@@ -7,11 +7,13 @@
 <title>Программа ремонта</title>
 </head>
 <body>
+<form action="save.php?" method="post">
 <div class="wrap">
 	<div class="panel">
 		<div class="pbf_link"><a href="#"></a></div>
 		<div class="pbs_link"><a href="#"></a></div>
 		<div class="pbt_link"><a href="#"></a></div>
+		<div class="pbs_link"><input type="submit" name="id" value= <?php echo "\"" . $_POST['id'] . "\""; ?> ></div>
 	</div>
 	<div class="info">
 	<table class="main">
@@ -28,11 +30,11 @@
 	<div class="info_brd">
 	<table class="main">
 		<tr>
-			<td width="300px"><input style="width:20px;" type="checkbox" name="winter" value="" 
-                                     <?php if($data['winter']) echo " checked";?> 
+			<td width="300px"><input style="width:20px;" type="checkbox" name="winter"  
+                                    <?php if($data['winter']) echo " checked"; ?> 
                 >Вкл. в меропр. подготовки к зиме</td>
-			<td><input style="width:20px;" type="checkbox" name="" value=""
-                       <?php if($data['municipal']) echo " checked";?>
+			<td><input style="width:20px;" type="checkbox" name="municipal" value=""
+                                    <?php if($data['municipal']) echo " checked";?>
                 >Включать в муницип. заказ</td>
 		</tr>
 	</table>
@@ -50,7 +52,7 @@
 		<tr>
 			<td colspan="2" align="center">
                 <p>
-                    <select>
+                    <select name="repairs_type_id">
                         <option></option>
                         <?php
                             foreach($repairs_type as $rp)
@@ -74,7 +76,7 @@
             </td>
 			<td colspan="2" align="center">
                 <p>
-                    <select>
+                    <select name="constructive_id">
                         <option></option>
                         <?php
                             foreach($constructive as $c)
@@ -98,7 +100,7 @@
             </td>
 			<td colspan="2" align="center">
                 <p>
-                    <select>
+                    <select name="executor_id">
                         <option></option>
                         <?php
                             foreach($executor as $e)
@@ -120,10 +122,10 @@
                     </select>
                 </p>
             </td>
-			<td align="center"><input type="text" size="4" value=
+			<td align="center"><input type="text" size="4" name="last_year" value=
                       <?php echo " \"" . $data['last_year'] . "\""; ?>
                 ></td>
-			<td align="center"><input type="text" size="4" value=
+			<td align="center"><input type="text" size="4" name="year" value=
                       <?php echo " \"" . $data['year'] . "\""; ?>
                 ></td>
 		</tr>
@@ -131,30 +133,30 @@
 	<table class="main">
 		<tr>
 			<td align="center" width="8%">Договор:</td>
-			<td align="center" width="5%"><input type="text" size="4" value=
+			<td align="center" width="5%"><input type="text" size="4" name="contract" value=
                     <?php echo " \"" . $data['contract'] . "\""; ?> 
                 ></td>
 			<td align="center" width="5%">Дата:</td>
-			<td align="center" width="5%"><input type="text" size="4" value=
-                    <?php echo " \"" . $data['contract_date'] . "\""; ?>
+			<td align="center" width="5%"><input type="date" size="4" name="contract_date" value=
+                    <?php if ($data['contract_date'] != "0000-00-00") echo " \"" . date_create($data['contract_date'])->Format('Y-m-d') . "\""; ?>
                 ></td>
 			<td align="center" width="5%">%</td>
-			<td align="center" width="5%"><input type="text" size="4" value=
+			<td align="center" width="5%"><input type="text" size="4" name="percent" value=
                     <?php echo " \"" . $data['percent'] . "\""; ?>
                 ></td>
 			<td align="center" width="12%">№ по важности:</td>
-			<td align="center" width="5%"><input type="text" size="4" value=
+			<td align="center" width="5%"><input type="text" size="4" name="number_pp" value=
                     <?php echo " \"" . $data['number_pp'] . "\""; ?>
                 ></td>
 			<td align="center" width="5%">Куратор:</td>
 			<td align="center" width="23%">
                 <p>
-                    <select>
+                    <select name="curator_id">
                         <option></option>
                         <?php
                             foreach($curator as $c)
                             {
-                                if($e['id'] == $data['curator_id'])
+                                if($c['id'] == $data['curator_id'])
                                 {
                                     echo "<option selected value=", $c['id'], ">";
                                     echo $c['name'];
@@ -184,7 +186,7 @@
 				<td width="14%">Вид конструктива</td>
 				<td width="80%">
                     <p>
-                        <select>
+                        <select name="constructive_type_id">
                             <option></option>
                             <?php
                                 foreach($constructive_type as $ct)
@@ -211,7 +213,7 @@
 				<td>Вид работ</td>
 				<td>
                     <p>
-                        <select>
+                        <select name="work_type_id">
                             <option></option>
                             <?php
                                 foreach($work_type as $wt)
@@ -240,7 +242,7 @@
 				<td width="7%">Материал</td>
 				<td width="15%">
                     <p>
-                        <select>
+                        <select name="material_id">
                             <option></option>
                             <?php
                                 foreach($material as $m)
@@ -266,7 +268,7 @@
 				<td width="10%" align="right">Заказчик</td>
 				<td width="15%">
                     <p>
-                        <select>
+                        <select name="customer_id">
                             <option></option>
                             <?php
                                 foreach($customer as $c)
@@ -292,7 +294,7 @@
 				<td width="15%" align="right">Подрядчик</td>
 				<td width="10%">
                     <p>
-                        <select>
+                        <select name="contractor_id">
                             <option></option>
                             <?php
                                 foreach($contractor as $c)
@@ -325,19 +327,19 @@
 		<table class="main">
 			<tr>
 				<td rowspan="2" width="30%">Объем работ</td>
-				<td rowspan="2" colspan="2" width="15%"><input type="text" size="4" value=
+				<td rowspan="2" colspan="2" width="15%"><input type="text" size="4" name="volume_per_year" value=
                         <?php echo " \"" . $data['volume_per_year'] . "\""; ?>                                     
                     ></td>
 				<td width="35%"> Всего СМР титул (1984г), руб</td>
-				<td><input type="text" size="4" value=
+				<td><input type="text" size="4" name="sum_smr_1984" value=
                            <?php echo " \"" . $data['sum_smr_1984'] . "\""; ?>
                 </td>
 			</tr>
 			<tr>
-				<td> Всего СМР титул (<input class="small_inp" type="text" size="4" value=
+				<td> Всего СМР титул (<input class="small_inp" type="text" size="4" name="smr_year" value=
                                              <?php echo " \"" . $data['smr_year'] . "\""; ?>
                     >), руб</td>
-				<td><input type="text" size="4" value=
+				<td><input type="text" size="4" name="sum_smr_current_year" value=
                            <?php echo " \"" . $data['sum_smr_current_year'] . "\""; ?>
                 </td>
 			</tr>
@@ -345,7 +347,7 @@
 				<td rowspan="2">Единица измерения</td>
 				<td rowspan="2">
                     <p>
-                        <select>
+                        <select name="unit_id">
                             <option></option>
                             <?php
                                 foreach($unit as $u)
@@ -369,19 +371,19 @@
                 </td>
 				<td rowspan="2" width="2%" class="s_button"><button class="small_button"></button></td>
 				<td>Новая стоимость в тек. ценах:</td>
-				<td><input type="text" size="4" value=
+				<td><input type="text" size="4" name="current_smr" value=
                            <?php echo " \"" . $data['current_smr'] . "\""; ?>
                 </td>
 			</tr>
 			<tr>
 				<td>Сумма от процента экономии:</td>
-				<td><input type="text" size="4" value=
+				<td><input type="text" size="4" name="economy" value=
                     <?php echo " \"" . $data['economy'] . "\""; ?>
                     ></td>
 			</tr>
 			<tr>
 				<td>Стоимость оборудования</td>
-				<td colspan="2"><input type="text" size="4" value=
+				<td colspan="2"><input type="text" size="4" name="cost_of_equipment" value=
                             <?php echo " \"" . $data['cost_of_equipment'] . "\""; ?>
                 </td>
 			</tr>
@@ -392,19 +394,19 @@
 			</tr>
 			<tr>
 				<td width="5%" align="center">I</td>
-				<td width="20%"><input type="text" size="4" value=
+				<td width="20%"><input type="text" size="4" name="kv_1" value=
                                        <?php echo " \"" . $data['kv_1'] . "\""; ?>
                 </td>
 				<td width="5%" align="center">II</td>
-				<td width="20%"><input type="text" size="4" value=
+				<td width="20%"><input type="text" size="4" name="kv_2" value=
                                        <?php echo " \"" . $data['kv_2'] . "\""; ?>
                 </td>
 				<td width="5%" align="center">III</td>
-				<td width="20%"><input type="text" size="4" value=
+				<td width="20%"><input type="text" size="4" name="kv_3" value=
                                        <?php echo " \"" . $data['kv_3'] . "\""; ?>
                 </td>
 				<td width="5%" align="center">IV</td>
-				<td width="20%"><input type="text" size="4" value=
+				<td width="20%"><input type="text" size="4" name="kv_4" value=
                                        <?php echo " \"" . $data['kv_4'] . "\""; ?>
                 </td>
 			</tr>
@@ -412,10 +414,10 @@
 		<table class="main">
 			<tr>
 				<td width="25%">Остаток стоимости:</td>
-				<td><input type="text" size="4" value=
+				<td><input type="text" size="4" name="cost_balance" value=
                            <?php echo " \"" . $data['cost_balance'] . "\""; ?>
                 </td>
-				<td><input type="text" size="4" value=
+				<td><input type="text" size="4" name="kv_sum" value=
                            <?php echo " \"" . $data['kv_sum'] . "\""; ?>
                 </td>
 			</tr>
@@ -429,17 +431,17 @@
 			</tr>
 			<tr>
 				<td >начала</td>
-				<td ><input type="text" size="4" value=
-                            <?php echo " \"" . date_create($data['first_date'])->Format('d.m.Y') . "\""; ?>
+				<td ><input type="date" size="4" name="first_date" value=
+                           <?php echo " '" . date_create($data['first_date'])->Format('Y-m-d') . "'"; ?>
                 </td>
-				<td rowspan="2"><input style="height:40px;" type="text" size="4" value=
+				<td rowspan="2"><input style="height:40px;" type="text" size="4" name="note" value=
                             <?php echo " \"" . $data['note'] . "\""; ?>
                 </td>
 			</tr>
 			<tr>			
 				<td>окончания</td>
-				<td><input type="text" size="4" value=
-                           <?php echo " \"" . date_create($data['last_date'])->Format('d.m.Y') . "\""; ?>
+				<td><input type="date" size="4" name="last_date" value=
+                           <?php echo " \"" . date_create($data['last_date'])->Format('Y-m-d') . "\""; ?>
                 </td>
 			</tr>
 		</table>	
@@ -448,11 +450,12 @@
 		<table class="main">
 			<h3>Обоснование</h3>
 			<tr>
-				<td rowspan="2"><input style="height:63px;" type="text" size="4" value=
+				<td rowspan="2"><input style="height:63px;" type="text" size="4" name="justification" value=
                            <?php echo " \"" . $data['justification'] . "\""; ?>
                 </td>
 			</tr>
 		</table>	
 	</div>
 </div>
+</form>
 </body>
